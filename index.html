@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Parcial IA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Modo estudio para parcial</p>
+      <h1>Simulador de preguntas de IA</h1>
+      <p class="subtitle">Responde como en un formulario: elige una opción, valida, revisa la explicación y avanza.</p>
+    </div>
+    <div class="score-card">
+      <span id="score">0/0</span>
+      <small>correctas</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2>Configuración</h2>
+      <label>
+        Tema
+        <select id="topicFilter">
+          <option value="all">Todos los temas</option>
+        </select>
+      </label>
+
+      <label>
+        Modo
+        <select id="modeSelect">
+          <option value="ordered">Orden normal</option>
+          <option value="random">Aleatorio</option>
+          <option value="wrong">Repasar falladas</option>
+        </select>
+      </label>
+
+      <div class="button-row">
+        <button id="startBtn" class="primary">Iniciar / reiniciar</button>
+        <button id="resetProgressBtn" class="ghost">Borrar progreso</button>
+      </div>
+
+      <div class="stats">
+        <div><strong id="totalQuestions">0</strong><span>Preguntas</span></div>
+        <div><strong id="answeredCount">0</strong><span>Respondidas</span></div>
+        <div><strong id="accuracy">0%</strong><span>Acierto</span></div>
+      </div>
+
+      <details>
+        <summary>Cómo montarlo en GitHub Pages</summary>
+        <ol>
+          <li>Crea un repositorio en GitHub.</li>
+          <li>Sube <code>index.html</code>, <code>styles.css</code>, <code>app.js</code> y <code>questions.js</code>.</li>
+          <li>Entra a <strong>Settings → Pages</strong>.</li>
+          <li>Selecciona <strong>Deploy from a branch</strong>, rama <strong>main</strong> y carpeta <strong>/root</strong>.</li>
+          <li>Guarda y espera el enlace público.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="quiz">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span id="questionCounter">Pregunta 1 de 1</span>
+          <span id="topicBadge" class="badge">Tema</span>
+        </div>
+        <div class="progress-bar"><div id="progressFill"></div></div>
+      </div>
+
+      <article class="question-card">
+        <h2 id="questionText">Carga las preguntas para empezar.</h2>
+        <div id="options" class="options"></div>
+
+        <div id="feedback" class="feedback hidden"></div>
+
+        <div class="nav">
+          <button id="prevBtn" class="ghost">Anterior</button>
+          <button id="checkBtn" class="primary">Comprobar</button>
+          <button id="nextBtn" class="primary">Siguiente</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hecho para estudiar de forma activa: responder, equivocarse, entender y repetir.</p>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
